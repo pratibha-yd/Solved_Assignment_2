@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     static final String DB_URL = "jdbc:mysql://localhost:3306";
     static final String USER = "root";
-    static final String PASS = "Pratibha@007";
+    static final String PASS = "Knoldus@25";
     // for suffix
     static final String SUFFIX = "_Pratibha";
     public static void main(String[] args) throws Exception {
