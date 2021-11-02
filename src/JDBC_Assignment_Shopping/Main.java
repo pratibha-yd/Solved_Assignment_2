@@ -24,6 +24,7 @@ public class Main {
         Main shopping = new Main();
         shopping.insertProductAndDisplay();
         shopping.insertAndDisplayCart();
+        shopping.TotalAmount();
         shopping.totalCart();
         shopping.productSoldMost();
         shopping.productNotSold();
@@ -129,6 +130,26 @@ public class Main {
         }
 
 
+    }
+    // method to show total amount of the product in cart
+    public void TotalAmount() {
+        try {
+            String query="select products.pid, products.pname,cart.qty,cart.qty*products.price as Total from products,cart where products.pid= cart.pid";
+            st = con.prepareStatement(query);
+            rs = st.executeQuery();
+            System.out.println("****************** Cart Items Total *****************");
+            while (rs.next()) {
+                System.out.print("pID: " + rs.getInt("pid"));
+                System.out.print(" pName: " + rs.getString("pname"));
+                System.out.print(" Qty: " + rs.getInt("qty"));
+                System.out.print(" Total: " + rs.getString("Total"));
+                System.out.println("");
+            }
+
+            System.out.println();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
     // method to show total checkout price in cart
